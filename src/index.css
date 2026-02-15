@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+body.light {
+  background: #f8fafc;
+  color: #0f172a;
+}

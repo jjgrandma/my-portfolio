@@ -1,0 +1,127 @@
+/* =========================
+   NAVBAR CONTAINER
+========================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   LOGO
+========================= */
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #38bdf8;
+}
+
+/* =========================
+   LINKS
+========================= */
+.nav-links {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px;
+  border-radius: 999px;
+}
+
+/* Each link */
+.nav-btn {
+  text-decoration: none;
+  color: #e5e7eb;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover animation */
+.nav-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Active / primary (Contact) */
+.nav-btn.primary {
+  background: linear-gradient(135deg, #22c55e, #38bdf8);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+.navbar-theme-toggle {
+  margin-left: 20px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  transition: 0.3s;
+}
+
+.navbar-theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+/* =========================
+   HAMBURGER MENU
+========================= */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    width: 90%;
+    background: rgba(15, 23, 42, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,209 @@
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 60px;
+  min-height: 90vh;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   LEFT SIDE – TEXT
+========================= */
+.hero-left {
+  flex: 1;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero-left h1 {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.hero-left h2 {
+  font-size: 26px;
+}
+
+.hero-left span {
+  color: #38bdf8;
+}
+
+.hero-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+.social-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 20px;
+}
+
+.social-icons svg {
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.social-icons svg:hover {
+  transform: translateY(-3px);
+  color: #38bdf8;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, #2563eb, #38bdf8, #22c55e);
+  color: #fff;
+  border: none;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #2563eb, #38bdf8, #22c55e) 1;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* =========================
+   RIGHT SIDE – IMAGE
+========================= */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  width: 420px;   /* INCREASED SIZE */
+  height: 420px;  /* INCREASED SIZE */
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  border: 5px solid #38bdf8;
+  background-color: #0f172a;
+
+  -webkit-mask-image: radial-gradient(circle, black 99%, transparent 100%);
+  mask-image: radial-gradient(circle, black 99%, transparent 100%);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+
+  animation: float 6s ease-in-out infinite;
+}
+
+
+.hero-right img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+}
+
+/* =========================
+   DARK MODE IMAGE – VISIBLE
+========================= */
+.dark .hero-right img {
+  filter: brightness(0.9) contrast(1.2);
+  border-color: #38bdf8;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.6);
+}
+
+.dark .hero-right img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 55px rgba(56, 189, 248, 0.9);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .hero-right img {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-right img {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-right img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* =========================
+   IMAGE VIBRATION ANIMATION
+========================= */
+.hero-right img {
+  /* existing styles */
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle, black 99%, transparent 100%);
+  mask-image: radial-gradient(circle, black 99%, transparent 100%);
+  border: 4px solid #38bdf8;
+  background-color: #0f172a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+
+  /* ADD vibration animation */
+ animation: vibrate 5s infinite;
+}
+
+/* Vibration keyframes */
+@keyframes vibrate {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-1px, 1px) rotate(-1deg); }
+  20%  { transform: translate(-1px, -1px) rotate(1deg); }
+  30%  { transform: translate(1px, 1px) rotate(0deg); }
+  40%  { transform: translate(1px, -1px) rotate(1deg); }
+  50%  { transform: translate(-1px, 1px) rotate(-1deg); }
+  60%  { transform: translate(1px, 1px) rotate(0deg); }
+  70%  { transform: translate(-1px, -1px) rotate(1deg); }
+  80%  { transform: translate(1px, -1px) rotate(-1deg); }
+  90%  { transform: translate(-1px, 1px) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
