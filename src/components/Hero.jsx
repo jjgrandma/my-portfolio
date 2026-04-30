@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import '../styles/hero.css'
 import { FaFacebookF, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 
 function Hero() {
+  const [showCV, setShowCV] = useState(false)
+
   return (
     <section className="hero" id="home">
       <div className="hero-left">
@@ -21,7 +24,7 @@ function Hero() {
         </div>
 
         <div className="buttons">
-          <a href="/cv.pdf" className="btn primary">Download CV</a>
+          <button className="btn primary" onClick={() => setShowCV(true)}>View CV</button>
           <a href="#projects" className="btn secondary">Portfolio</a>
         </div>
       </div>
@@ -29,6 +32,28 @@ function Hero() {
       <div className="hero-right">
         <img src="/rrr.jpg" alt="profile" />
       </div>
+
+      {/* CV Modal */}
+      {showCV && (
+        <div className="cv-overlay" onClick={() => setShowCV(false)}>
+          <div className="cv-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="cv-modal-header">
+              <span>My CV</span>
+              <div className="cv-modal-actions">
+                <a href="/MyCv.pdf" download="MyCv.pdf" className="cv-download-btn">
+                  ⬇ Download
+                </a>
+                <button className="cv-close-btn" onClick={() => setShowCV(false)}>✕</button>
+              </div>
+            </div>
+            <iframe
+              src="/MyCv.pdf"
+              title="My CV"
+              className="cv-iframe"
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

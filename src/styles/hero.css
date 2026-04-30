@@ -207,3 +207,113 @@
   50%  { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
+
+/* =========================
+   CV MODAL
+========================= */
+.cv-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.cv-modal {
+  background: #1f2b34;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 860px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.cv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #162028;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-download-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8, #22c55e);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cv-download-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.cv-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.cv-close-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.cv-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+}
+
+@media (max-width: 480px) {
+  .cv-modal {
+    height: 95vh;
+    border-radius: 10px;
+  }
+
+  .cv-modal-header {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}

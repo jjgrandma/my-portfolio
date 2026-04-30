@@ -1,40 +1,74 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles/contact.css';
 
 function Contact() {
   const form = useRef();
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    if (!form.current) return;
+    setStatus('sending');
 
     emailjs.sendForm(
-      'service_zo6ehsa',       // your EmailJS service ID
-      'template_e1imrss',      // your EmailJS template ID
+      'service_oezlkwf',
+      'template_e1imrss',
       form.current,
-      'l6sIYY0lupMf20VmM'     // your EmailJS public key
+      'l6sIYY0lupMf20VmM'
     )
     .then(() => {
-      alert('Message sent successfully!');
-      form.current.reset(); // clear the form
+      setStatus('success');
+      form.current.reset();
+      setTimeout(() => setStatus('idle'), 5000);
     })
     .catch((error) => {
-      alert('Failed to send message, try again.');
+      setStatus('error');
       console.error('EmailJS error:', error.text || error);
+      setTimeout(() => setStatus('idle'), 5000);
     });
   };
 
   return (
     <section className="contact" id="contact">
       <h2>Contact Me</h2>
+      <p className="contact-subtitle">Have a project in mind? Send me a message and I'll get back to you.</p>
 
       <form ref={form} className="contact-form" onSubmit={sendEmail}>
-        <input type="text" name="user_name" placeholder="Your Name" required />
-        <input type="email" name="user_email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+        <input
+          type="text"
+          name="user_name"
+          placeholder="Your Name"
+          required
+          disabled={status === 'sending'}
+        />
+        <input
+          type="email"
+          name="user_email"
+          placeholder="Your Email"
+          required
+          disabled={status === 'sending'}
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+          disabled={status === 'sending'}
+        ></textarea>
+
+        <button type="submit" disabled={status === 'sending'}>
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
+        </button>
+
+        {status === 'success' && (
+          <div className="form-feedback success">
+            ✅ Message sent! I'll get back to you soon.
+          </div>
+        )}
+        {status === 'error' && (
+          <div className="form-feedback error">
+            ❌ Failed to send. Please try again or email me directly.
+          </div>
+        )}
       </form>
 
       <div className="contact-info">
