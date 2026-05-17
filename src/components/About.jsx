@@ -12,7 +12,9 @@ function About() {
             modern, responsive, and user-friendly web applications using React.
             I developed my technical skills through academic training and
             continuous self-learning, focusing on clean UI design and efficient
-            component-based architecture.
+            component-based architecture. In addition to web development, I also
+            work with <strong>Machine Learning</strong>, applying data-driven solutions
+            alongside my MERN stack expertise to build intelligent, full-featured applications.
           </p>
 
           <p>

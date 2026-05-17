@@ -37,6 +37,20 @@ function Projects() {
       image: '/poor.jpg',
       github: null,
       demo: null
+    },
+    {
+      name: 'Detect Ad Revenue Leakage',
+      description: 'A data analysis project to detect ad revenue leakage in a media company.',
+      image: '/leakage.jpg',
+      github: null,
+      demo: null
+    },
+    {
+      name: 'ML-Powered SEO Content Optimization',
+      description: 'A machine learning project to help a media company grow organic traffic through SEO content optimization.',
+      image: '/SEO.jpg',
+      github: null,
+      demo: null
     }
   ];
 
@@ -63,7 +77,7 @@ function Projects() {
               ) : (
                 <span className="card-btn demo-btn disabled">Coming Soon</span>
               )}
-              {project.demo ? (
+              {project.demo && (
                 <a
                   href={project.demo}
                   target="_blank"
@@ -72,7 +86,7 @@ function Projects() {
                 >
                   Live Demo
                 </a>
-              ) : null}
+              )}
             </div>
           </div>
         ))}
