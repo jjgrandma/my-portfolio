@@ -27,7 +27,7 @@ function About() {
 
         <div className="about-image">
            <div className="image-placeholder">
-          <img src="/rrr.jpg" alt="Graduation images" />
+          <img src="/about.jpg" alt="About me" />
         
           </div>
         </div>

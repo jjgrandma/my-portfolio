@@ -40,14 +40,14 @@ function Hero() {
             <div className="cv-modal-header">
               <span>My CV</span>
               <div className="cv-modal-actions">
-                <a href="/MyCv.pdf" download="MyCv.pdf" className="cv-download-btn">
+                <a href="/project (1).pdf" download="project (1).pdf" className="cv-download-btn">
                   ⬇ Download
                 </a>
                 <button className="cv-close-btn" onClick={() => setShowCV(false)}>✕</button>
               </div>
             </div>
             <iframe
-              src="/MyCv.pdf"
+              src="/project (1).pdf"
               title="My CV"
               className="cv-iframe"
             />
