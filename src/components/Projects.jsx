@@ -8,27 +8,27 @@ function Projects() {
       description: 'A full-stack vehicle management system for Haramaya University built with the MERN stack.',
       image: busImg,
       github: 'https://github.com/jjgrandma/HU-VMS',
-      demo: null // add live URL here once deployed separately
+      demo: null
     },
     {
       name: 'Bookstore Management System',
       description: 'A system for managing bookstore inventory, sales, and records.',
       image: '/bg-image.jpg',
-      github: 'https://github.com/jjgrandma/bookstore',
+      github: 'https://github.com/jjgrandma/HU-bookstoreManagementSystem',
       demo: null
     },
     {
       name: 'Hospital Management System',
       description: 'A hospital management system for handling patients, staff, and appointments.',
       image: '/bg-image.jpg',
-      github: 'https://github.com/jjgrandma/hospital',
+      github: null,
       demo: null
     },
     {
       name: 'Vehicle-exit Management System',
       description: 'A system for tracking and managing vehicle exits and entries.',
       image: '/bg-image.jpg',
-      github: 'https://github.com/jjgrandma/vehicle-exit',
+      github: null,
       demo: null
     }
   ];
@@ -44,14 +44,16 @@ function Projects() {
             <h3>{project.name}</h3>
             <p className="project-desc">{project.description}</p>
             <div className="card-buttons">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-btn github-btn"
-              >
-                GitHub
-              </a>
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-btn github-btn"
+                >
+                  GitHub
+                </a>
+              ) : null}
               {project.demo ? (
                 <a
                   href={project.demo}
@@ -61,9 +63,7 @@ function Projects() {
                 >
                   Live Demo
                 </a>
-              ) : (
-                <span className="card-btn demo-btn disabled">Coming Soon</span>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
