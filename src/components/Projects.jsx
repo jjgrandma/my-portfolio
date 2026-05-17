@@ -13,21 +13,28 @@ function Projects() {
     {
       name: 'Bookstore Management System',
       description: 'A system for managing bookstore inventory, sales, and records.',
-      image: '/bg-image.jpg',
+      image: '/BS.jpg',
       github: 'https://github.com/jjgrandma/HU-bookstoreManagementSystem',
       demo: null
     },
     {
       name: 'Hospital Management System',
       description: 'A hospital management system for handling patients, staff, and appointments.',
-      image: '/bg-image.jpg',
+      image: '/HMS.png',
       github: null,
       demo: null
     },
     {
       name: 'Vehicle-exit Management System',
       description: 'A system for tracking and managing vehicle exits and entries.',
-      image: '/bg-image.jpg',
+      image: '/VE.jpg',
+      github: null,
+      demo: null
+    },
+    {
+      name: 'Poor Content Performance Prediction',
+      description: 'A machine learning project to predict poor content performance in a media company.',
+      image: '/poor.jpg',
       github: null,
       demo: null
     }
@@ -53,7 +60,9 @@ function Projects() {
                 >
                   GitHub
                 </a>
-              ) : null}
+              ) : (
+                <span className="card-btn demo-btn disabled">Coming Soon</span>
+              )}
               {project.demo ? (
                 <a
                   href={project.demo}
